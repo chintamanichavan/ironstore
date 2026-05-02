@@ -1,0 +1,40 @@
+[package]
+name = "vektalite"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "vektalite"
+path = "src/lib.rs"
+
+[[bin]]
+name = "vektalite"
+path = "src/main.rs"
+
+[[bin]]
+name = "vektalite-cli"
+path = "src/bin/cli.rs"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+bytes = "1"
+thiserror = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+clap = { version = "4", features = ["derive"] }
+rayon = "1"
+crc32fast = "1"
+tokio-rustls = "0.26"
+rustls = { version = "0.23", features = ["ring"] }
+rustls-pemfile = "2"
+pin-project = "1"
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1

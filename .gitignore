@@ -1,0 +1,18 @@
+# Cargo
+/target/
+
+# Runtime storage — never commit DB state
+/data/
+*.sst
+*.log
+wal*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Env
+.env
